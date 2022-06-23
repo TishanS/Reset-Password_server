@@ -19,5 +19,11 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/password-reset", passwordResetRoutes);
 
+app.use('/', (req,res,next) => {
+    console.log("Dashboard");
+    res.send("hi heroku");
+    next();
+})
+
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Listening on port ${port}...`));
